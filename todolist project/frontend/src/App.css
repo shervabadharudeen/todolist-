@@ -1,0 +1,407 @@
+/* App.css - Custom styling for Soft Lavender Theme & Productivity Dashboard */
+
+/* App Container Layout */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  background: var(--lavender-gradient);
+}
+
+.brand-text {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-section-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.8px;
+}
+
+.hover-nav-link:hover {
+  background-color: #f5f3ff;
+  color: var(--lavender-primary) !important;
+}
+
+.active-nav-link {
+  background-color: #f5f3ff !important;
+  color: var(--lavender-primary) !important;
+}
+
+.hover-bg-subtle:hover {
+  background-color: #f8fafc;
+}
+
+.priority-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Mobile Sidebar Drawer */
+@media (max-width: 991.98px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(2px);
+    z-index: 1019;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+}
+
+/* Main Header */
+.main-header {
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.header-greeting {
+  letter-spacing: -0.3px;
+}
+
+.greeting-wave {
+  display: inline-block;
+  animation: wave 2.2s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.search-input {
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  background-color: #ffffff;
+  border-color: var(--lavender-primary) !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12) !important;
+}
+
+/* Dashboard Welcome Banner */
+.dashboard-welcome-banner {
+  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 50%, #4f46e5 100%);
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.25);
+}
+
+.banner-circle-1 {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.banner-circle-2 {
+  position: absolute;
+  bottom: -60px;
+  right: 120px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+/* Summary Stat Cards */
+.stat-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(112, 85, 235, 0.08) !important;
+}
+
+.stat-card-active {
+  border: 1.5px solid var(--lavender-primary) !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1) !important;
+}
+
+.stat-icon-wrapper {
+  width: 44px;
+  height: 44px;
+}
+
+.stat-value {
+  letter-spacing: -1px;
+}
+
+/* Task Card */
+.task-card {
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -3px rgba(0, 0, 0, 0.06) !important;
+}
+
+.task-card-completed {
+  opacity: 0.85;
+  background-color: #fbfbfd !important;
+  border-color: #edf2f7 !important;
+}
+
+.task-title {
+  font-size: 1.05rem;
+  letter-spacing: -0.2px;
+  transition: color 0.2s ease;
+}
+
+.task-title:hover {
+  color: var(--lavender-primary) !important;
+}
+
+/* Custom Aesthetic Checkbox */
+.task-checkbox-btn {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 2px solid #cbd5e1;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.task-checkbox-btn:hover {
+  border-color: var(--lavender-primary);
+  background-color: #f5f3ff;
+}
+
+.task-checkbox-checked {
+  background: var(--lavender-gradient) !important;
+  border-color: transparent !important;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.35);
+}
+
+.task-checkbox-unchecked .check-hover-icon {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.task-checkbox-btn:hover .check-hover-icon {
+  opacity: 0.6;
+}
+
+/* Action buttons on task card */
+.btn-icon-action {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-icon-action:hover {
+  background-color: #f1f5f9;
+  transform: scale(1.06);
+}
+
+/* Priority Badges & Selectors */
+.badge-priority-high {
+  background-color: #fee2e2 !important;
+  color: #b91c1c !important;
+  border: 1.5px solid #ef4444 !important;
+  font-weight: 700 !important;
+}
+
+.badge-priority-medium {
+  background-color: #fef3c7 !important;
+  color: #b45309 !important;
+  border: 1.5px solid #f59e0b !important;
+  font-weight: 700 !important;
+}
+
+.badge-priority-low {
+  background-color: #ecfdf5 !important;
+  color: #047857 !important;
+  border: 1.5px solid #10b981 !important;
+  font-weight: 700 !important;
+}
+
+.priority-badge-btn {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.priority-badge-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Overlay Styling */
+.task-modal-overlay {
+  z-index: 1060;
+}
+
+.modal-backdrop.show {
+  opacity: 0.5;
+  background-color: #0f172a;
+}
+
+.delete-icon-wrapper {
+  width: 56px;
+  height: 56px;
+}
+
+.empty-state-icon-wrapper {
+  width: 76px;
+  height: 76px;
+}
+
+/* Quick Task Add Box */
+.quick-task-add {
+  border: 1px solid rgba(226, 232, 240, 0.9) !important;
+  transition: all 0.25s ease;
+}
+
+.quick-task-add:focus-within {
+  border-color: var(--lavender-primary) !important;
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.1) !important;
+}
+
+.quick-add-input {
+  font-size: 1.05rem;
+  font-weight: 500;
+  background-color: transparent !important;
+}
+
+.quick-add-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* Task Card Highlight Pulse on Add / Edit */
+.task-card-highlighted {
+  animation: highlightPulse 2.8s ease-in-out;
+  border-color: var(--lavender-primary) !important;
+}
+
+@keyframes highlightPulse {
+  0% {
+    transform: scale(0.99);
+    background-color: #ede9fe !important;
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.35);
+  }
+  30% {
+    transform: scale(1.01);
+    background-color: #f5f3ff !important;
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* New Sections Styling */
+.hover-bg-lavender:hover {
+  background-color: #c4b5fd !important;
+}
+
+.tracking-tight {
+  letter-spacing: -0.05em;
+}
+
+.activity-chart-container {
+  padding: 8px 4px;
+}
+
+.hover-opacity-100:hover {
+  opacity: 1 !important;
+}
+
+/* Live Search Dropdown Under Search Bar */
+.search-results-dropdown {
+  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.18), 0 5px 15px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid rgba(226, 232, 240, 0.95) !important;
+  animation: dropdownSlideDown 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdownSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-result-item {
+  border: 1px solid transparent;
+}
+
+.search-result-item:hover {
+  background-color: #f5f3ff !important;
+  border-color: #ede9fe;
+}
+
+/* Helpers */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.shadow-xs {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
